@@ -1,0 +1,15 @@
+read a .csv file (to keep it very simple) into an array (or arraylist to be able to continually make it bigger).
+
+four functions:
+
+(1) add
+  Be able to add a new todo task. Each task includes title, due date, id, and notes.
+(2) delete
+  Delete a task based on id
+(3) edit
+  Choose a task based on id, and edit it
+(4) list
+  A little more feature rich command, should be able to do
+  simple sorting and searching (fuzzy).
+
+  
