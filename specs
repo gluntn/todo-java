@@ -12,4 +12,5 @@ four functions:
   A little more feature rich command, should be able to do
   simple sorting and searching (fuzzy).
 
-  
+File structure:
+id,title,done,due date,note
