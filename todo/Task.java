@@ -10,8 +10,6 @@ public class Task {
   private LocalDate date;
   private boolean done = false;
 
-  public Task() { }
-
   public Task(int id, String title, boolean done) {
     this.id = id;
     this.title = title;
@@ -33,8 +31,10 @@ public class Task {
     this.done = done;
   }
 
-  public Task createTask(String title, LocalDate date, String note) {
-    return new Task();
+  public static Task create(String title, LocalDate date, String note) {
+    if(date != null) { return new Task(1, title, false, date); }
+    if(note != "") { return new Task(1, title, false, date, note); }
+    return new Task(1, title, false);
   }
 
   public int getId() { return this.id; }

@@ -62,7 +62,7 @@ public class Todo {
   public static void add() {
     System.out.print("Title: ");
     String tempTitle = scanner.next();
-    todoList.add(new Task(1, tempTitle, false));
+    todoList.add(Task.create(tempTitle, null, ""));
     if(inputFile.save(todoList)) {
       System.out.println("Saved successfully!");
     }
