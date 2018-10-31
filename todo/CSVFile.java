@@ -46,11 +46,11 @@ public class CSVFile {
         tempTitle = tempLine[1];
         tempDone = tempLine[2] == "1" ? true : false;
         if(tempLine.length == 4) {
-          tempDueDate = LocalDate.parse(tempLine[2]);
+          tempDueDate = LocalDate.parse(tempLine[3]);
           tempList.add(new Task(tempId, tempTitle, tempDone, tempDueDate));
         }
         else if(tempLine.length == 5) {
-          tempNote = tempLine[3];
+          tempNote = tempLine[4];
           tempList.add(new Task(tempId, tempTitle, tempDone, tempDueDate, tempNote));
         }
         else { tempList.add(new Task(tempId, tempTitle, tempDone)); }

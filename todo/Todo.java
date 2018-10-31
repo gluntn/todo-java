@@ -47,7 +47,7 @@ public class Todo {
 
   public static void print() {
     todoList.forEach((Task task) -> {
-      System.out.printf("[%s] %s", task.getDone() ? "x":" ", task.getTitle());
+      System.out.printf("[%s] %s ", task.getDone() ? "x":" ", task.getTitle());
       if(task.getDate() != null) {
         System.out.printf("Due the %s", task.getDate().toString());
       }
@@ -61,7 +61,7 @@ public class Todo {
 
   public static void add() {
     System.out.print("Title: ");
-    String tempTitle = scanner.next();
+    String tempTitle = scanner.nextLine();
     todoList.add(Task.create(tempTitle, null, ""));
     if(inputFile.save(todoList)) {
       System.out.println("Saved successfully!");
@@ -72,15 +72,38 @@ public class Todo {
   }
 
   public static void remove() {
-    System.out.println("Remove");
+    System.out.printf("Which index would you like to remove? ");
+    int indexTodo = scanner.nextInt();
+    if(indexTodo - 1 > todoList.size()) {
+      System.out.println("Out of index!");
+      remove();
+    }
+    todoList.remove(indexTodo - 1);
+    inputFile.save(todoList);
   }
 
   public static void edit() {
-    System.out.println("Edit");
+    System.out.printf("Which index would you like to edit? ");
+    int indexTodo = scanner.nextInt();
+    if(indexTodo - 1 > todoList.size()) {
+      System.out.println("Out of index!");
+      edit();
+    }
+    System.out.printf("Write new title for %s: ", todoList.get(indexTodo - 1).getTitle());
+    todoList.get(indexTodo - 1).setTitle(scanner.nextLine());
+    inputFile.save(todoList);
   }
 
   public static void done() {
-    System.out.println("Done");
+    // For debug purposes, just use index
+    System.out.printf("Which index would you like to set to done? ");
+    int indexTodo = scanner.nextInt();
+    if(indexTodo - 1 > todoList.size()) {
+      System.out.println("Out of index!");
+      done();
+    }
+    todoList.get(indexTodo - 1).setDone(true);
+    inputFile.save(todoList);
   }
 
 

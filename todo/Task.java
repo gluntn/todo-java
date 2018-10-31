@@ -42,4 +42,9 @@ public class Task {
   public boolean getDone() { return this.done; }
   public LocalDate getDate() { return this.date; }
   public String getNote() { return this.note; }
+
+  public void setDone(boolean done) { this.done = done; }
+  public void setNote(String note) { this.note = note; }
+  public void setTitle(String title) { this.title = title; }
+  public void setDate(LocalDate date) { this.date = date; }
 }
